@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8f2">
+    <meta name="description" content="Build confidence in maths with Waheed Maths Academy. Register your interest today.">
+    <title>Waheed Maths Academy | Build confidence in maths</title>
+    <link rel="icon" type="image/jpeg" href="WhatsApp%20Image%202026-10-14%20at%2019.36.37.jpeg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="Waheed Maths Academy home">
+            <img class="brand-logo" src="WhatsApp%20Image%202026-10-14%20at%2019.36.37.jpeg" alt="">
+            <span>Waheed Maths Academy</span>
+        </a>
+        <a class="header-link" href="#enquiry">Enquire now <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">A brighter way to learn</p>
+            <h1 id="page-title">Maths made <span>clear.</span><br>Confidence built.</h1>
+            <p class="intro-copy">
+                At Waheed Maths Academy, we make learning maths feel approachable, rewarding, and built around each
+                student's goals. Take the first step and let us know a little about you.
+            </p>
+            <div class="learning-note">
+                <span class="note-icon" aria-hidden="true">π</span>
+                <span>Every big achievement starts with one small step.</span>
+            </div>
+        </section>
+
+        <section class="form-card" id="enquiry" aria-labelledby="form-title">
+            <div class="form-heading">
+                <h2 id="form-title">Start your journey</h2>
+                <p>Fill in the details below and take your first step with us.</p>
+            </div>
+            <form id="enquiry-form">
+                <div class="field">
+                    <label for="full-name">Student's full name</label>
+                    <input id="full-name" name="fullName" type="text" placeholder="e.g. Alex Khan" autocomplete="name" required>
+                </div>
+                <div class="field">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                </div>
+                <div class="field">
+                    <label for="guardian-name">Guardian's name</label>
+                    <input id="guardian-name" name="guardianName" type="text" placeholder="Parent or guardian's full name" autocomplete="off" required>
+                </div>
+                <div class="field">
+                    <label for="phone">Contact number</label>
+                    <input id="phone" name="phone" type="tel" placeholder="03XXXXXXXXX" autocomplete="tel" inputmode="numeric" minlength="11" maxlength="11" pattern="03[0-9]{9}" title="Enter a valid Pakistani mobile number: 11 digits starting with 03." required>
+                </div>
+                <button class="submit-button" type="submit">Send my enquiry <span aria-hidden="true">→</span></button>
+                <p class="form-footnote">Your details are for your enquiry only. This demo form does not send or store submissions.</p>
+                <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>© <span id="year"></span> Waheed Maths Academy</span>
+        <span class="developer-credit">Web developer: Suhani Vinod</span>
+    </footer>
+
+    <section class="academy-chat" aria-label="Waheed Maths Academy chatbot">
+        <div class="chat-window" id="academy-chat-window" aria-labelledby="academy-chat-title" hidden>
+            <div class="chat-header">
+                <h2 id="academy-chat-title">Chat with Waheed Maths Academy</h2>
+                <button class="chat-close" type="button" aria-label="Close chat">×</button>
+            </div>
+            <div class="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+                <p class="chat-message chat-message-bot">Hi! Ask me about fees, timings, or courses.</p>
+            </div>
+            <form class="chat-form">
+                <label class="visually-hidden" for="academy-chat-input">Your message</label>
+                <input id="academy-chat-input" name="message" type="text" placeholder="Type your question..." autocomplete="off" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <button class="chat-toggle" type="button" aria-controls="academy-chat-window" aria-expanded="false">
+            <span aria-hidden="true">✉</span> Chat
+        </button>
+    </section>
+
+    <script>
+        const enquiryForm = document.querySelector("#enquiry-form");
+        const formStatus = document.querySelector("#form-status");
+        const submitButton = enquiryForm.querySelector(".submit-button");
+        let isNavigating = false;
+
+        document.querySelector("#year").textContent = new Date().getFullYear();
+
+        enquiryForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (isNavigating) {
+                return;
+            }
+
+            isNavigating = true;
+            submitButton.classList.add("is-submitting");
+            const animationDelay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 180;
+            window.setTimeout(() => {
+                window.location.href = "Page%20info.html";
+            }, animationDelay);
+        });
+    </script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>
